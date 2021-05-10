@@ -18,6 +18,7 @@ include('conexion.php');
       <th scope="col">Tipo</th>
       <th scope="col">Numero</th>
       <th scope="col">Nombre</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -86,6 +87,10 @@ include('conexion.php');
         
         ?>
       </td>
+      <td>
+         <button type="button" class="btn btn-warning mx-auto">MODIFICACION</button>
+         <button type="button" class="btn btn-danger mx-auto">BAJA</button></td>
+      </td>
     </tr>
     <tr>
       <th scope="row">
@@ -149,7 +154,12 @@ include('conexion.php');
         
         ?>
       </td>
+        <td>
+         <button type="button" class="btn btn-warning mx-auto">MODIFICACION</button>
+         <button type="button" class="btn btn-danger mx-auto">BAJA</button></td>
+      </td>
     </tr>
+
   </tbody>
 </table>
 <button class="btn btn-primary form-control btn-block container mx-5">NUEVO POKEMON</button>
