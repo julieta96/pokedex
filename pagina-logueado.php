@@ -49,8 +49,7 @@ include('conexion.php');
       $result = $con->query($sql);
       $resultArray=$result->fetch_all(MYSQLI_ASSOC);
        foreach($resultArray as $fila){
-            $tipo=$fila["descripcion"];
-          echo $tipo;
+           echo"<img src=".$fila["descripcion"]." style='width: 5rem; height: 80px'>";
        }
         
 
@@ -117,8 +116,7 @@ include('conexion.php');
       $result = $con->query($sql);
       $resultArray=$result->fetch_all(MYSQLI_ASSOC);
        foreach($resultArray as $fila){
-            $tipo=$fila["descripcion"];
-          echo $tipo;
+           echo"<img src=".$fila["descripcion"]." style='width: 5rem; height: 80px'>";
        }
         
 
