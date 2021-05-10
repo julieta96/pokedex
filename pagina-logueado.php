@@ -98,7 +98,7 @@ include('conexion.php');
       $result = $con->query($sql);
       $resultArray=$result->fetch_all(MYSQLI_ASSOC);
        foreach($resultArray as $fila){
-          echo"<img src=".$fila["imagen"]." style='width: 5rem; height: 80px'>";
+         echo"<a href='http://localhost:8080/tp-pokedex/pokemons-detalle.php?imagen=".$fila["imagen"]."'>"."<img src=".$fila["imagen"]." style='width: 5rem; height: 80px'></a>";
        }
 
        ?>
