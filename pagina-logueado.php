@@ -162,7 +162,7 @@ include('conexion.php');
 </table>
 <button class="btn btn-primary form-control btn-block container mx-5">NUEVO POKEMON</button>
 
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="recursos/js/bootstrap.min.js"></script>
 
 </body>
 </html>

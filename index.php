@@ -184,7 +184,7 @@ if(isset($_SESSION['usuario'])){
   </tbody>
 </table>
 
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="recursos/js/bootstrap.min.js"></script>
 
 </body>
 </html>
