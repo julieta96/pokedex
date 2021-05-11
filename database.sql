@@ -3,7 +3,7 @@ use pokedex;
 
 create table Tipo(
 id int,
-descripcion varchar(15),
+descripcion varchar(80),
 primary key (id));
 
 create table Pokemons(
@@ -16,8 +16,8 @@ foreign key (tipo) references Tipo(id));
 
 insert into Tipo(id,descripcion)
 values
-(1,'Electrico'),
-(2,'Agua');
+(1,'recursos/img/pokemons/tipo/electrico.png'),
+(2,'recursos/img/pokemons/tipo/agua.png');
 
 insert into Pokemons(id,tipo, nombre,imagen)
 values
