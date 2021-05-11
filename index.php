@@ -17,7 +17,7 @@ if(isset($_SESSION['usuario'])){
 <head>
 	<meta charset="utf-8">
 	<title>POKEDEX</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="recursos/css/bootstrap.min.css">
  	
 </head>
 <body>
