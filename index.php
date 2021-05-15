@@ -101,18 +101,18 @@ if(isset($_SESSION['usuario'])){
                                 <td>" . $pokemon['altura'] . "</td>
                                 <td>" . $pokemon['peso'] . "</td>
                                 <td>" . $pokemon['habilidad'] . "</td>
-                                <td><img src=recursos/img/pokemons/tipo/" .$pokemon['tipo']. ".png width=70 height=70>";
+                                <td><img src='".$pokemon['tipo']. "' width='50' height='50'>";
 
 	                            if($pokemon["tipo_dos"]!=null){
 
-			        			  echo" <img src=recursos/img/pokemons/tipo/".$pokemon['tipo_dos']. ".png width=70 height=70></td>";
+			        			  echo" <img src='".$pokemon['tipo_dos']. "' width='50' height='50'></td>";
 
 			        			}else{
 			        				 echo"</td>";
 			        			} 
 
                               echo "<td>" . $pokemon['descripcion'] . "</td>
-                                   <td> <img src=" . $pokemon['imagen'] . " width=75 height=75 ></td>
+                                   <td> <img src='" . $pokemon['imagen'] . "' width='75' height='75' ></td>
 
                              </tr>";
                 }?>

@@ -25,7 +25,7 @@ include('conexion.php');
     </tr>
   </thead>
   <tbody>
-       <?php 
+       <?php
 
        $sql="SELECT * FROM Pokemons";
        $result = $con->query($sql);
@@ -63,11 +63,11 @@ include('conexion.php');
                                 <td>" . $pokemon['altura'] . "</td>
                                 <td>" . $pokemon['peso'] . "</td>
                                 <td>" . $pokemon['habilidad'] . "</td>
-                                <td><img src=" . $pokemon['tipo'] . "width=70 height=70>";
+                                <td><img src='".$pokemon['tipo']."' width='50' height='50'>";
 
                               if($pokemon["tipo_dos"]!=null){
 
-                      echo" <img src=".$pokemon['tipo_dos']. "width=70 height=70></td>";
+                      echo" <img src='".$pokemon['tipo_dos']. "' width='50' height='50'></td>";
 
                     }else{
                        echo"</td>";
