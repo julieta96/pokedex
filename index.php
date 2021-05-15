@@ -39,7 +39,7 @@ if(isset($_SESSION['usuario'])){
 	</header>
 	<section class="d-flex flex-col mb-3 col">
 
-		<form class="form-group d-flex flex-col col">
+		<form class="form-group d-flex flex-col col" action="index.php" method="get">
 			<input type="text"  class="form-control" name="buscar" placeholder="Ingrese nombre, tipo o numero de pokemon"><button type="submit" class="btn btn-primary">Quien es este pokemon?</button>
 		</form>
 	 </section>
@@ -59,6 +59,11 @@ if(isset($_SESSION['usuario'])){
   </thead>
   <tbody>
   	   <?php 
+
+		$buscar = isset( $_GET["buscar"])?$_GET["buscar"] : "";
+		if($buscar==""){
+			$sql="SELECT * FROM Pokemons";
+		}
 
   	   $sql="SELECT * FROM Pokemons";
   	   $result = $con->query($sql);
