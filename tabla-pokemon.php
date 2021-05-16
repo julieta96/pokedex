@@ -25,7 +25,7 @@ foreach ( $pokemons as $pokemon){
                                    <button type='button' class='btn btn-danger ms-auto'>BAJA</button>
                                     <form action='verMas.php' method='get'>
                                           <input type='hidden' name='id' value=".$pokemon['id'].">
-                                          <input class='btn btn-primary ms-auto' type='submit' value='ver mas'>
+                                          <input class='btn btn-primary ms-auto' type='submit' value='VER MAS'>
                                     </form>
                                    </td>
                                    

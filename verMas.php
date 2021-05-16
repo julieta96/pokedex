@@ -1,23 +1,9 @@
-<!doctype html>
-<html lang="es">
 
-  <head>
-    <title>Pokedex</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-
-  <body class="m-0 row justify-content-center">
-    <div class="flex-column">
-        
-    <div class="text-center"><h1>pokedex</h1></div>
    
 
     <?php
+
+        include('header-con-sesion.php');
 
         $id = isset( $_GET["id"])?$_GET["id"] : "";
         
@@ -48,7 +34,7 @@
 
         ?>
 
-</div>
+
 
 
 
