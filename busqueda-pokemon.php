@@ -1,0 +1,31 @@
+<?php
+
+$sql="SELECT * FROM Pokemons";
+       $result = $con->query($sql);
+       $pokemons = Array();
+
+        if (mysqli_num_rows($result) > 0) {
+   
+        while($fila = mysqli_fetch_assoc($result)) {
+            $c = Array();
+            $pokemon['id'] =  $fila["id_manual"];
+            $pokemon['nombre'] =  $fila["nombre"];
+            $pokemon['altura'] =  $fila["altura"];
+            $pokemon['peso'] =  $fila["peso"];
+            $pokemon['habilidad'] =  $fila["habilidad"];
+            $pokemon['tipo'] =  $fila["tipo"];
+            if($fila["tipo_dos"]!=null){
+
+            $pokemon['tipo_dos'] =  $fila["tipo_dos"];
+
+            }
+            $pokemon['descripcion'] =  $fila["descripcion"];
+            $pokemon['imagen'] =  $fila["imagen"];
+            $pokemons[] = $pokemon;
+        }
+
+
+      }
+
+
+?>
