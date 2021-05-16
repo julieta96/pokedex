@@ -1,6 +1,7 @@
 <?php
  session_start();
  include('conexion.php');
+ include('busqueda-pokemon.php');
    
 
 if(isset($_SESSION['usuario'])){
@@ -40,7 +41,7 @@ if(isset($_SESSION['usuario'])){
 	<section class="d-flex flex-col mb-3 col">
 
 		<form class="form-group d-flex flex-col col" action="index.php" method="get">
-			<input type="text"  class="form-control" name="buscar" placeholder="Ingrese nombre, tipo o numero de pokemon"><button type="submit" class="btn btn-primary">Quien es este pokemon?</button>
+			<input type="text"  class="form-control" name="buscar" placeholder="Ingrese nombre, tipo o numero de pokemon"><button type="submit" class="btn btn-primary" name="boton">Quien es este pokemon?</button>
 		</form>
 	 </section>
 
@@ -65,57 +66,18 @@ if(isset($_SESSION['usuario'])){
 			$sql="SELECT * FROM Pokemons";
 		}
 
-  	   $sql="SELECT * FROM Pokemons";
-  	   $result = $con->query($sql);
-  	   $pokemons = Array();
+  	   if(isset($_GET['boton'])){
 
-  	   foreach($pokemons as $pokemon){}
+        include('obtener-pokemon-sin-sesion.php');
 
-  	   	if (mysqli_num_rows($result) > 0) {
-   
-		    while($fila = mysqli_fetch_assoc($result)) {
-		        $c = Array();
-		        $pokemon['id'] =  $fila["id_manual"];
-		        $pokemon['nombre'] =  $fila["nombre"];
-		        $pokemon['altura'] =  $fila["altura"];
-		        $pokemon['peso'] =  $fila["peso"];
-		        $pokemon['habilidad'] =  $fila["habilidad"];
-		        $pokemon['tipo'] =  $fila["tipo"];
-		        
+      }else{
 
-		        $pokemon['tipo_dos'] =  $fila["tipo_dos"];
+       include('busqueda-pokemon.php');
+       include('tabla-sin-sesion.php');
 
-		        
-		        $pokemon['descripcion'] =  $fila["descripcion"];
-		        $pokemon['imagen'] =  $fila["imagen"];
-		        $pokemons[] = $pokemon;
-    		}
+      }
 
-
-  		}
-
-  		foreach ( $pokemons as $pokemon){
-                    echo   "<tr>
-                                <td>" . $pokemon['id'] . "</td>
-                                <td>" . $pokemon['nombre'] . "</td>
-                                <td>" . $pokemon['altura'] . "</td>
-                                <td>" . $pokemon['peso'] . "</td>
-                                <td>" . $pokemon['habilidad'] . "</td>
-                                <td><img src='".$pokemon['tipo']. "' width='50' height='50'>";
-
-	                            if($pokemon["tipo_dos"]!=null){
-
-			        			  echo" <img src='".$pokemon['tipo_dos']. "' width='50' height='50'></td>";
-
-			        			}else{
-			        				 echo"</td>";
-			        			} 
-
-                              echo "<td>" . $pokemon['descripcion'] . "</td>
-                                   <td> <img src='" . $pokemon['imagen'] . "' width='75' height='75' ></td>
-
-                             </tr>";
-                }?>
+  		?>
 
   	
     <tr>
