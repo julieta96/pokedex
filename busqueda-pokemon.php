@@ -14,11 +14,11 @@ $sql="SELECT * FROM Pokemons";
             $pokemon['peso'] =  $fila["peso"];
             $pokemon['habilidad'] =  $fila["habilidad"];
             $pokemon['tipo'] =  $fila["tipo"];
-            if($fila["tipo_dos"]!=null){
+            
 
             $pokemon['tipo_dos'] =  $fila["tipo_dos"];
 
-            }
+            
             $pokemon['descripcion'] =  $fila["descripcion"];
             $pokemon['imagen'] =  $fila["imagen"];
             $pokemons[] = $pokemon;

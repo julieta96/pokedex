@@ -9,7 +9,7 @@ foreach ( $pokemons as $pokemon){
                                 <td>" . $pokemon['habilidad'] . "</td>
                                 <td><img src='".$pokemon['tipo']."' width='50' height='50'>";
 
-                              if($pokemon["tipo_dos"]!=null){
+                              if(isset($pokemon["tipo_dos"])){
 
                       echo" <img src='".$pokemon['tipo_dos']. "' width='50' height='50'></td>";
 
