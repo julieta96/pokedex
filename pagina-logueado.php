@@ -48,7 +48,7 @@ include('busqueda-pokemon.php');
 
 
 
-<button class="btn btn-primary form-control btn-block container mx-5 mb-3">NUEVO POKEMON</button>
+<div class="container mt-3"><h3><a class="btn btn-success w-100" href="subirForm.php">SUBIR UN POKEMON</a></h3></div>
 
 	<script type="text/javascript" src="recursos/js/bootstrap.min.js"></script>
 
