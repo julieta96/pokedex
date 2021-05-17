@@ -20,8 +20,10 @@ foreach ( $pokemons as $pokemon){
                               echo "<td>" . $pokemon['descripcion'] . "</td>
                                    <td> <img src=" . $pokemon['imagen'] . " width=75 height=75 ></td>
                                    <td>
-                                   <button type='button' class='btn btn-warning ms-auto'>MODIFICACION</button>
-                                   <br>
+                                   <form action='modificarForm.php' method='get'>
+                                          <input type='hidden' name='id' value=".$pokemon['id'].">
+                                          <input class='btn btn-warning ms-auto' type='submit' value='MODIFICAR'>
+                                    </form>
                                    <button type='button' class='btn btn-danger ms-auto'>BAJA</button>
                                     <form action='verMas.php' method='get'>
                                           <input type='hidden' name='id' value=".$pokemon['id'].">
