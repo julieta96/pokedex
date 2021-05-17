@@ -18,8 +18,32 @@ if(validarUsuario($user,$pass)==true){
 	exit();
 }
 
-function validarUsuario($u,$p){
+function validarUsuario($user,$pass){
+     
+    include('conexion.php');
 
-	return $u=='j' && $p='1234';
+    $query="select * 
+    		from Login
+    		where usuario='".$user."' and password='".$pass."'";
+
+    $resultadoDB= $con->query($query);
+
+    if (mysqli_num_rows($resultadoDB) > 0) {
+   
+        while($fila = mysqli_fetch_assoc($resultadoDB)) {
+
+             $usuarioDB= $fila['usuario'];
+             $passwordDB =$fila['password'];
+
+        }
+
+        if($usuarioDB==$user && $passwordDB==$pass){
+
+        	return true;
+
+        }
+    }
+
+	return false;
 
 }
