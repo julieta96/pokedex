@@ -24,7 +24,10 @@ foreach ( $pokemons as $pokemon){
                                           <input type='hidden' name='id' value=".$pokemon['id'].">
                                           <input class='btn btn-warning ms-auto' type='submit' value='MODIFICAR'>
                                     </form>
-                                   <button type='button' class='btn btn-danger ms-auto'>BAJA</button>
+                                    <form action='baja-pokemon.php' method='get'>
+                                      <input type='hidden' name='idBaja' value=".$pokemon['id'].">
+                                      <button type='submit' class='btn btn-danger ms-auto' name='baja'>BAJA</button>
+                                   </form>
                                     <form action='verMas.php' method='get'>
                                           <input type='hidden' name='id' value=".$pokemon['id'].">
                                           <input class='btn btn-primary ms-auto' type='submit' value='VER MAS'>
@@ -34,7 +37,6 @@ foreach ( $pokemons as $pokemon){
 
                              </tr>";
                 }
-
 
 
 ?>
