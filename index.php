@@ -1,6 +1,7 @@
 <?php
  session_start();
  include('conexion.php');
+ include('busqueda-pokemon.php');
    
 
 if(isset($_SESSION['usuario'])){
@@ -17,174 +18,86 @@ if(isset($_SESSION['usuario'])){
 <head>
 	<meta charset="utf-8">
 	<title>POKEDEX</title>
-    <link rel="stylesheet" type="text/css" href="recursos/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="recursos/css/bootstrap.min.css">
  	
 </head>
 <body>
 
-	<header  class="d-flex flex-col">
-	  <section class="d-flex flex-row mb-5 col-6 mt-3">
-		<div class="logo col-2 mx-2">
-			<img src="recursos/img/logo/logo.png" width="50" height="50">
+<!--------------------- HEADER -------------------------------->
+	<header>
+		<div class="container">
+			<div class="row py-3">
+				<div class="col">
+					<a href="index.php"><img src="recursos/img/logo/logo.png" width="50" height="50"></a>
+				</div>
+
+				<div class="col-md-3">
+					<h1 class="text-center">POKEDEX</h1>
+				</div>
+				
+				<div class="col-md-6 pt-2">
+					<form class="d-flex mx-5 col-4" action="login.php" method="post">
+						<input type="text" name="usuario"  class="form-control mx-2 col-1" placeholder="usuario">
+						<input type="password" name="password" class="form-control mx-2 col-1" placeholder="contraseña">
+						<button button type="submit" class="btn btn-primary col-6">Ingresar</button>
+					</form>
+				</div>
+			</div>
 		</div>
-		<div class="text-center d-inline-flex col-4 mx-5">
-			<h1 class="text-center">POKEDEX</h1>
-		</div>
-		<form class="form-group d-flex flex-row mx-5 col-6" action="login.php" method="post">
-			<input type="text" name="usuario"  class="form-control mx-2 col-1" placeholder="usuario">
-			<input type="password" name="password" class="form-control mx-2 col-1" placeholder="contraseña">
-			<button button type="submit" class="btn btn-primary col-4">Ingresar</button>
-		</form>
-	  </section>
 	</header>
-	<section class="d-flex flex-col mb-3 col">
 
-		<form class="form-group d-flex flex-col col">
-			<input type="text"  class="form-control" name="buscar" placeholder="Ingrese nombre, tipo o numero de pokemon"><button type="submit" class="btn btn-primary">Quien es este pokemon?</button>
-		</form>
-	 </section>
+<!--------------------- BUSQUEDA -------------------------------->
 
-  <table class="table container">
-  <thead>
-    <tr>
-      <th scope="col">Imagen</th>
-      <th scope="col">Tipo</th>
-      <th scope="col">Numero</th>
-      <th scope="col">Nombre</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">
-      	<?php 
-            
-		 
-			$sql = "select p.imagen 
-			 		from pokemons p
-			 		where p.nombre like '%pikachu%'";
-			$result = $con->query($sql);
-			$resultArray=$result->fetch_all(MYSQLI_ASSOC);
-			 foreach($resultArray as $fila){
-					echo"<img src=".$fila["imagen"]." style='width: 5rem; height: 80px'>";
-			 }
-				
+	 <div class="container">
+	 	<div class="row">
+		 	<div class="col-md-12 py-3">
+				<form class="d-flex col" action="index.php" method="get">
+					<input type="text"  class="form-control" name="buscar" placeholder="Ingrese nombre, tipo o numero de pokemon">
+					<button type="submit" class="btn btn-primary" name="boton">Quien es este pokemon?</button>
+				</form> 
+			</div>
+		</div>
+	 </div>
 
-      	?>
-      </th>
-      <td>
-      	<?php 
-   
-			$sql = "select t.descripcion 
-			 		from tipo t inner join 
-			 		pokemons p on p.tipo=t.id
-			 		where p.nombre like '%pikachu%'";
-			$result = $con->query($sql);
-			$resultArray=$result->fetch_all(MYSQLI_ASSOC);
-			 foreach($resultArray as $fila){
-					 echo"<img src=".$fila["descripcion"]." style='width: 5rem; height: 80px'>";
-			 }
-				
+<!--------------------- TABLA -------------------------------->
 
-      	?>
-      </td>
-      <td>
-      		<?php 
-   
-			$sql = "select p.id 
-			 		from  pokemons p 
-			 		where p.nombre like '%pikachu%'";
-			$result = $con->query($sql);
-			$resultArray=$result->fetch_all(MYSQLI_ASSOC);
-			 foreach($resultArray as $fila){
-			 	    $id=$fila["id"];
-					echo $id;
-			 }
-				
+  	<table class="table container">
+  		<thead class="text-center">
+    		<tr>
+      			<th scope="col">Nro</th>
+      			<th scope="col">Nombre</th>
+      			<th scope="col">Altura</th>
+      			<th scope="col" class="pe-5 ps-5">Peso</th>
+      			<th scope="col">Habilidad</th>
+      			<th scope="col">Tipo</th>
+      			<th scope="col">Descripcion</th>
+      			<th scope="col">Imagen</th>
+    		</tr>
+  		</thead>
+  		<tbody>
+  	   	<?php 
 
-      	?>
-      </td>
-      <td>
-      		<?php 
-   
-			 $sql = "select p.nombre 
-			 		from  pokemons p 
-			 		where p.id=1";
-			$result = $con->query($sql);
-			$resultArray=$result->fetch_all(MYSQLI_ASSOC);
-			 foreach($resultArray as $fila){
-			 	    $nom=$fila["nombre"];
-					echo $nom;
-			 }
-				
-      	?>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-      	 	<?php 
-            
-		 
-			$sql = "select p.imagen 
-			 		from pokemons p
-			 		where p.nombre like '%squirtle%'";
-			$result = $con->query($sql);
-			$resultArray=$result->fetch_all(MYSQLI_ASSOC);
-			 foreach($resultArray as $fila){
-					echo"<img src=".$fila["imagen"]." style='width: 5rem; height: 80px'>";
-			 }
+			$buscar = isset( $_GET["buscar"])?$_GET["buscar"] : "";
+			if($buscar==""){
+				$sql="SELECT * FROM Pokemons";
+			}
 
-			 ?>
-      </th>
-      <td><?php 
-   
-			$sql = "select t.descripcion 
-			 		from tipo t inner join 
-			 		pokemons p on p.tipo=t.id
-			 		where p.nombre like '%squirtle%'";
-			$result = $con->query($sql);
-			$resultArray=$result->fetch_all(MYSQLI_ASSOC);
-			 foreach($resultArray as $fila){
-					 echo"<img src=".$fila["descripcion"]." style='width: 5rem; height: 80px'>";
-			 }
-				
+  	   		if(isset($_GET['boton'])){
 
-      	?></td>
-      <td>
-      	<?php 
-   
-			$sql = "select p.id 
-			 		from  pokemons p 
-			 		where p.nombre like '%squirtle%'";
-			$result = $con->query($sql);
-			$resultArray=$result->fetch_all(MYSQLI_ASSOC);
-			 foreach($resultArray as $fila){
-			 	    $id=$fila["id"];
-					echo $id;
-			 }
-				
+        		include('obtener-pokemon-sin-sesion.php');
 
-      	?>
-      </td>
-      <td>
-      		<?php 
-   
-			 $sql = "select p.nombre 
-			 		from  pokemons p 
-			 		where p.id=2";
-			$result = $con->query($sql);
-			$resultArray=$result->fetch_all(MYSQLI_ASSOC);
-			 foreach($resultArray as $fila){
-			 	    $nom=$fila["nombre"];
-					echo $nom;
-			 }
-				
-      	?>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      		}else{
+       			include('busqueda-pokemon.php');
+       			include('tabla-sin-sesion.php');
+      		}
 
-    <script type="text/javascript" src="recursos/js/bootstrap.min.js"></script>
+  		?>
+			<tr>
+    		</tr>
+  		</tbody>
+	</table>
+
+	<script type="text/javascript" src="recursos/js/bootstrap.min.js"></script>
 
 </body>
 </html>

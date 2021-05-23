@@ -2,21 +2,29 @@
 <head>
 	<meta charset="utf-8">
 	<title>POKEDEX</title>
-    <link rel="stylesheet" type="text/css" href="recursos/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="recursos/css/bootstrap.min.css">
  	
 </head>
 <body>
+<!--------------------- HEADER -------------------------------->
+	<header>
+		<div class="container">
+			<div class="row py-3">
+				<div class="col">
+				<a href="index.php"><img src="recursos/img/logo/logo.png" width="50" height="50"></a>
+				</div>
 
-	<header  class="d-flex flex-col">
-	  <section class="d-flex flex-row mb-5 col-6 mt-3">
-		<div class="logo col-2 mx-2">
-			<img src="recursos/img/logo/logo.png" width="50" height="50">
+				<div class="col-md-3">
+					<h1 class="text-center">POKEDEX</h1>
+				</div>
+				
+				<div class="col-md-6 pt-2">
+					<form class="d-flex mx-5 col-4" action="login.php" method="post">
+						
+						<input type="password" name="password" class="form-control mx-2 col-1" placeholder="Nombre del usuario">
+						<button button type="submit" class="btn btn-primary col-6">Salir</button>
+					</form>
+				</div>
+			</div>
 		</div>
-		<div class="text-center d-inline-flex col-4 mx-5">
-			<h1 class="text-center">POKEDEX</h1>
-		</div>
-	  </section>
-   <form action="logout.php" class="form-control" method="post">
-    <button type="submit" class="btn btn-primary">cerrar sesion</button>
-   </form>
 	</header>
