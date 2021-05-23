@@ -41,15 +41,15 @@ $pokemonResultado = $con->query($sql2);
                                    <td> <img src=" . $fila['imagen'] . " width=75 height=75 ></td>
                                    <td>
                                   <form action='modificarForm.php' method='get'>
-                                          <input type='hidden' name='id' value=".$pokemon['id'].">
+                                          <input type='hidden' name='id' value=".$fila['id_manual'].">
                                           <input class='btn btn-warning ms-auto' type='submit' value='MODIFICAR'>
                                     </form>
                                     <form action='baja-pokemon.php' method='get'>
-                                      <input type='hidden' name='idBaja' value=".$pokemon['id'].">
+                                      <input type='hidden' name='idBaja' value=".$fila['id_manual'].">
                                       <button type='submit' class='btn btn-danger ms-auto' name='baja'>BAJA</button>
                                    </form>
                                     <form action='verMas.php' method='get'>
-                                          <input type='hidden' name='id' value=".$pokemon['id'].">
+                                          <input type='hidden' name='id' value=".$fila['id_manual'].">
                                           <input class='btn btn-primary ms-auto' type='submit' value='VER MAS'>
                                     </form>
                                    </td>
