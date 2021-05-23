@@ -8,7 +8,12 @@ if($buscar==""){
 
 }else{
 
-$sql2="SELECT * from Pokemons where nombre like '%".$buscar."%'";
+$sql2="SELECT * from Pokemons
+ where nombre= '". $buscar ."'
+ or id_manual = '". $buscar ."'
+ or  SUBSTR( SUBSTR(tipo,28) , 1 ,  LENGTH(SUBSTR(tipo,28)) -4 ) = '". $buscar ."'
+ or SUBSTR( SUBSTR(tipo_dos,28) , 1 ,  LENGTH(SUBSTR(tipo_dos,28)) -4 )  = '". $buscar ."'";
+
 
 $pokemonResultado = $con->query($sql2);
 
@@ -17,7 +22,7 @@ $pokemonResultado = $con->query($sql2);
         while($fila = mysqli_fetch_assoc($pokemonResultado)) {
             
             echo   "<tr>
-                                <td>" . $fila['id'] . "</td>
+                                <td>" . $fila['id_manual'] . "</td>
                                 <td>" . $fila['nombre'] . "</td>
                                 <td>" . $fila['altura'] . "</td>
                                 <td>" . $fila['peso'] . "</td>
