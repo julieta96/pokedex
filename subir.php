@@ -1,27 +1,44 @@
 <?php
 
-$id_manual = isset( $_GET["id_manual"])?$_GET["id_manual"] : "";
-$nombre = isset( $_GET["nombre"])?$_GET["nombre"] : "";
-$altura = isset( $_GET["altura"])?$_GET["altura"] : "";
-$peso = isset( $_GET["peso"])?$_GET["peso"] : "";
-$habilidad = isset( $_GET["habilidad"])?$_GET["habilidad"] : "";
-$tipo = isset( $_GET["tipo"])?$_GET["tipo"] : "";
-$tipo_dos = isset( $_GET["tipo_dos"])?$_GET["tipo_dos"] : "";
-$descripcion = isset( $_GET["descripcion"])?$_GET["descripcion"] : "";
-$imagen = isset( $_GET["imagen"])?$_GET["imagen"] : "";
+if (isset($_POST['subir'])) {
+    
+    $id_m = isset( $_POST["id_manual"])?$_POST["id_manual"] : "";
+    $nombre = isset( $_POST["nombre"])?$_POST["nombre"] : "";
+    $altura = isset( $_POST["altura"])?$_POST["altura"] : "";
+    $peso = isset( $_POST["peso"])?$_POST["peso"] : "";
+    $habilidad = isset( $_POST["habilidad"])?$_POST["habilidad"] : "";
+    $descrip = isset( $_POST["descripcion"])?$_POST["descripcion"] : "";
+    
+    $tipo=strtolower($_POST['tipo1']);
+    $tipo_dos=strtolower($_POST['tipo2']);
+ 
+    $imgFile = $_FILES['imagen']['name'];
+    $tmp_dir = $_FILES['imagen']['tmp_name'];
 
+    $upload_dir = 'recursos/img/pokemons/'; 
+  
+    move_uploaded_file($tmp_dir,$upload_dir.$imgFile);
 
-include_once("conexion.php");
+    include_once("conexion.php");
 
+    if($tipo_dos == ""){
+        $sql = "INSERT INTO pokemons (id_manual, nombre, altura, peso, habilidad, tipo, descripcion, imagen) 
+        VALUES ('$id_m', '$nombre', '$altura', '$peso', '$habilidad', 'recursos/img/pokemons/tipo/$tipo.png', '$descrip', 'recursos/img/pokemons/$imgFile')";
 
+        $result = $con->query($sql);
+    }
+    else{
+        $sql = "INSERT INTO pokemons (id_manual, nombre, altura, peso, habilidad, tipo, tipo_dos, descripcion, imagen) 
+        VALUES ('$id_m', '$nombre', '$altura', '$peso', '$habilidad', 'recursos/img/pokemons/tipo/$tipo.png', 'recursos/img/pokemons/tipo/$tipo_dos.png', '$descrip', 'recursos/img/pokemons/$imgFile')";
 
-$sql = "INSERT INTO pokemons (id_manual, nombre, altura, peso, habilidad, tipo, tipo_dos, descripcion, imagen) VALUES ('$id_manual', '$nombre', '$altura', '$peso', '$habilidad', '$tipo', '$tipo_dos', '$descripcion', '$imagen')";
+        $result = $con->query($sql);
+    }
 
-$result = $con->query($sql);
+    header("location:pagina-logueado.php");
+    exit();
 
-header("location:pagina-logueado.php");
-exit();
+    $con->close();
 
-$con->close();
+}
 
 ?>
