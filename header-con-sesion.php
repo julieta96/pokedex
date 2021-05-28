@@ -1,22 +1,46 @@
+<?php
+include('conexion.php');
+
+/*	$idusuario = $_SESSION['id'];
+
+	$sql = "SELECT id, usuario
+			FROM Login
+			WHERE id = '$idusuario'";
+
+	$resultado = $con->query($sql);
+	$row = $resultado->fetch_assoc(); */
+
+
+?>
+
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>POKEDEX</title>
-	<link rel="stylesheet" type="text/css" href="recursos/css/bootstrap.min.css">
- 	
+    <meta charset="utf-8">
+    <title>POKEDEX</title>
+    <link rel="stylesheet" type="text/css" href="recursos/css/bootstrap.min.css">
+
 </head>
 <body>
+<!--------------------- HEADER -------------------------------->
+<header>
+    <div class="container">
+        <div class="row py-3">
+            <div class="col">
+                <a href="index.php"><img src="recursos/img/logo/logo.png" width="50" height="50"></a>
+            </div>
 
-	<header  class="d-flex flex-col">
-	  <section class="d-flex flex-row mb-5 col-6 mt-3">
-		<div class="logo col-2 mx-2">
-			<img src="recursos/img/logo/logo.png" width="50" height="50">
-		</div>
-		<div class="text-center d-inline-flex col-4 mx-5">
-			<h1 class="text-center">POKEDEX</h1>
-		</div>
-	  </section>
-   <form action="logout.php" class="form-control" method="post">
-    <button type="submit" class="btn btn-primary">cerrar sesion</button>
-   </form>
-	</header>
+            <div class="col-md-3">
+                <h1 class="text-center">POKEDEX</h1>
+            </div>
+
+            <div class="col-md-6 pt-2 d-flex justify-content-end">
+                <form class="d-flex col-4 justify-content-end" action="logout.php" method="post">
+
+                    <!--	<h4>  <?php// echo utf8_decode($row['usuario']); ?> </h4>		-->
+
+                    <button button type="submit" class="btn btn-primary col-6">Salir</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
