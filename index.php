@@ -2,7 +2,6 @@
  session_start();
  include('conexion.php');
  include('busqueda-pokemon.php');
-   
 
 if(isset($_SESSION['usuario'])){
 
@@ -62,7 +61,7 @@ if(isset($_SESSION['usuario'])){
   	   <?php 
 
 		$buscar = isset( $_GET["buscar"])?$_GET["buscar"] : "";
-		if($buscar==""){
+		if(isset($buscar)){
 			$sql="SELECT * FROM Pokemons";
 		}
 

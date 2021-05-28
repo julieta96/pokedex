@@ -4,7 +4,7 @@ $buscarPokemon = $_GET["buscar"];
 
 if($buscarPokemon==""){
 
-  include('tabla-pokemon.php');
+  include('tabla-sin-sesion.php');
 
 }else{
 

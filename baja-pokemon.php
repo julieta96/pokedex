@@ -1,5 +1,12 @@
+
 <?php
  session_start();
+
+  if( !isset($_SESSION["usuario"]) ){
+      header("location:index.php");
+      exit();
+  }
+
  include('conexion.php');
  include('header-con-sesion.php');
  include('busqueda-pokemon.php');

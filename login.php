@@ -1,15 +1,19 @@
 <?php
 session_start();
 
+if(isset($_SESSION["usuario"]) ){
+      header("location:pagina-logueado.php");
+      exit();
+  	}
 
 $user=isset($_POST['usuario'])?$_POST['usuario']:"";
 $pass=isset($_POST['password'])?$_POST['password']:"";
 
 if(validarUsuario($user,$pass)==true){
 
-  $user=$_SESSION["usuario"];
-  $pass=$_SESSION["password"];
-
+ 
+  
+  $_SESSION["usuario"] = $user;
   header("location:pagina-logueado.php");
   exit();
 
