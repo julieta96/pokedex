@@ -22,7 +22,7 @@ include('conexion.php');
                 <h3 class="text-center">MODIFICAR POKEMON: <?php echo $fila["nombre"];?></h3>
 
                 <div class="input-group p-2 justify-content-center">
-                    <h4>ID: <?php echo $fila["id"];?> </h4>
+                    <h4>ID: <?php echo $fila["id_manual"];?> </h4>
                 </div>
 
                 <div class="input-group p-2">
