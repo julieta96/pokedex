@@ -1,6 +1,6 @@
 <?php
 
-$sql="SELECT * FROM Pokemons";
+$sql="SELECT * FROM Pokemons order by id_manual";
        $result = $con->query($sql);
        $pokemons = Array();
 
