@@ -21,24 +21,42 @@ include('conexion.php');
 
                 <h3 class="text-center">MODIFICAR POKEMON: <?php echo $fila["nombre"];?></h3>
 
-                <div class="input-group p-2 justify-content-center">
-                    <h4>ID: <?php echo $fila["id_manual"];?> </h4>
+                <div class="input-group p-2">
+                    <label class="form-control">ID:</label>
+                    <input class="form-control" type="text" id="id_manual" name="id_manual" placeholder="ID"
+                           value=" <?php echo $fila['id_manual']; ?>">
                 </div>
 
                 <div class="input-group p-2">
-                    <input class="form-control" type="text" id="altura" name="altura" placeholder="Altura">
+                    <label class="form-control">Nombre:</label>
+                    <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Nombre"
+                           value=" <?php echo $fila['nombre']; ?>">
                 </div>
+
                 <div class="input-group p-2">
-                    <input class="form-control" type="text" id="peso" name="peso" placeholder="Peso">
+                    <label class="form-control">Altura:</label>
+                    <input class="form-control" type="text" id="altura" name="altura" placeholder="Altura"
+                           value=" <?php echo $fila['altura']; ?>">
                 </div>
+
                 <div class="input-group p-2">
-                    <input class="form-control" type="text" id="habilidad" name="habilidad" placeholder="Habilidad">
+                    <label class="form-control">Peso:</label>
+                    <input class="form-control" type="text" id="peso" name="peso" placeholder="Peso"
+                           value=" <?php echo $fila['peso']; ?>">
                 </div>
+
+                <div class="input-group p-2">
+                    <label class="form-control">Habilidad:</label>
+                    <input class="form-control" type="text" id="habilidad" name="habilidad" placeholder="Habilidad"
+                           value=" <?php echo $fila['habilidad']; ?>">
+                </div>
+
                 <div class="input-group justify-content-between">
 
                     <div class="w-50 p-2">
                         <label class="form-label">Tipo de Pokemon</label>
                         <select name="tipo1" class="form-select">
+                            <option></option>
                             <option>Fuego</option>
                             <option>Agua</option>
                             <option>Bicho</option>
@@ -46,7 +64,6 @@ include('conexion.php');
                             <option>Planta</option>
                             <option>Veneno</option>
                             <option>Volador</option>
-
                         </select>
                     </div>
 
