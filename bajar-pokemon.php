@@ -18,6 +18,7 @@ if(isset($_GET['baja'])){
                             where id_manual='".$idBaja."'";
 
     if($con->query($eliminarPokemon) == true){
+        include('busqueda-pokemon.php');
         echo"
 	            <div class='alert alert-success text-center container' role='alert'>
 	                Se elimino correctamente
@@ -39,7 +40,8 @@ if(isset($_GET['baja'])){
                         </tr>
                     </thead>
                     <tbody>";
-                        include('tabla-pokemon.php');
+
+                        include_once('tabla-pokemon.php');
     }else{
         echo"
 	                <div class='alert alert-danger text-center container' role='alert'>
