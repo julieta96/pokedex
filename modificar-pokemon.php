@@ -88,7 +88,11 @@ include('conexion.php');
                     <textarea class="form-control" type="text"  rows="3" name="descripcion" placeholder="Descripcion del Pokemon"></textarea>
                 </div>
                 <div class="input-group p-2">
-                    <input name="imagen" id="imagen" type="file"/>
+                    <?php
+                        $archivo=$fila['imagen'];
+                        $imagen=substr($archivo, 22);
+                        echo"<input name='imagen' id='imagen' type='file' value='$imagen' />";
+                    ?>
                 </div>
                 <br>
                 <div class="row">
