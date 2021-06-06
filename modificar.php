@@ -4,6 +4,7 @@ include_once("conexion.php");
 
 if (isset($_POST['modificar'])) {
 
+    $id = isset( $_POST["id-pokemon"])?$_POST["id-pokemon"] : "";
     $id_m = isset( $_POST["id_manual"])?$_POST["id_manual"] : "";
     $nombre = isset( $_POST["nombre"])?$_POST["nombre"] : "";
     $altura = isset( $_POST["altura"])?$_POST["altura"] : "";
@@ -23,11 +24,12 @@ if (isset($_POST['modificar'])) {
 
     if ($tipo == "" and $tipo_dos =="" and $descrip == "" and $imgFile ==""){
         $modificar1 = "UPDATE pokemons
-                        SET nombre = '$nombre',
+                        SET id_manual = '$id_m',
+                        nombre = '$nombre',
                         altura = '$altura', 
                         peso = '$peso', 
                         habilidad = '$habilidad' 
-                        WHERE id_manual = $id_m";
+                        WHERE id = $id";
 
         $result = $con->query($modificar1);
 
@@ -35,13 +37,14 @@ if (isset($_POST['modificar'])) {
     }
     elseif ($tipo_dos =="" and $descrip == "" and $imgFile ==""){
         $modificar2 = "UPDATE pokemons
-                        SET nombre = '$nombre',
+                        SET id_manual = '$id_m',
+                        nombre = '$nombre',
                         altura = '$altura', 
                         peso = '$peso', 
                         habilidad = '$habilidad', 
                         tipo = 'recursos/img/pokemons/tipo/$tipo.png',
                         tipo_dos = null 
-                        WHERE id_manual = $id_m";
+                        WHERE id = $id";
 
         $modificar_2 =
 
@@ -49,24 +52,26 @@ if (isset($_POST['modificar'])) {
     }
     elseif ($descrip == "" and $imgFile ==""){
         $modificar3 = "UPDATE pokemons
-                        SET nombre = '$nombre',
+                        SET id_manual = '$id_m', 
+                        nombre = '$nombre',
                         altura = '$altura', 
                         peso = '$peso', 
                         habilidad = '$habilidad', 
                         tipo = 'recursos/img/pokemons/tipo/$tipo.png', 
                         tipo_dos = 'recursos/img/pokemons/tipo/$tipo_dos.png'
-                        WHERE id_manual = $id_m";
+                        WHERE id = $id";
 
         $result = $con->query($modificar3);
     }
     elseif ($tipo == "" and $tipo_dos =="" and $imgFile ==""){
         $modificar4 = "UPDATE pokemons
-                        SET nombre = '$nombre',
+                        SET id_manual = '$id_m',
+                        nombre = '$nombre',
                         altura = '$altura', 
                         peso = '$peso', 
                         habilidad = '$habilidad', 
                         descripcion = '$descrip'
-                        WHERE id_manual = $id_m";
+                        WHERE id = $id";
 
         $result = $con->query($modificar4);
     }
@@ -77,20 +82,21 @@ if (isset($_POST['modificar'])) {
                         peso = '$peso', 
                         habilidad = '$habilidad',
                         imagen = 'recursos/img/pokemons/$imgFile'
-                        WHERE id_manual = $id_m";
+                        WHERE id = $id";
 
         $result = $con->query($modificar5);
     }
     else{
         $modificar6 = "UPDATE pokemons
-                        SET nombre = '$nombre',
+                        SET id_manual = '$id_m',
+                        nombre = '$nombre',
                         altura = '$altura', 
                         peso = '$peso', 
                         habilidad = '$habilidad', 
                         tipo = 'recursos/img/pokemons/tipo/$tipo.png', 
                         tipo_dos = 'recursos/img/pokemons/tipo/$tipo_dos.png',
                         imagen = 'recursos/img/pokemons/$imgFile'
-                        WHERE id_manual = $id_m";
+                        WHERE id = $id";
 
         $result = $con->query($modificar6);
 
