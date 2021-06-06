@@ -25,6 +25,7 @@ include('conexion.php');
                     <label class="form-control">ID:</label>
                     <input class="form-control" type="text" id="id_manual" name="id_manual" placeholder="ID"
                            value=" <?php echo $fila['id_manual']; ?>">
+                    <input type="hidden" name="id-pokemon" value=" <?php echo $fila['id']; ?> ">
                 </div>
 
                 <div class="input-group p-2">
