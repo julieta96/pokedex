@@ -85,7 +85,9 @@ include('conexion.php');
                 </div>
 
                 <div class="input-group p-2">
-                    <textarea class="form-control" type="text"  rows="3" name="descripcion" placeholder="Descripcion del Pokemon"></textarea>
+                    <textarea class="form-control" type="text"  rows="3" name="descripcion" placeholder="Descripcion del Pokemon">
+                        <?php echo $fila['descripcion']; ?>
+                    </textarea>
                 </div>
                 <div class="input-group p-2">
                     <?php
