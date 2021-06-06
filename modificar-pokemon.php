@@ -90,7 +90,15 @@ include('conexion.php');
                     <input name="imagen" id="imagen" type="file"/>
                 </div>
                 <br>
-                <input type="submit" name="modificar" class="btn btn-primary w-100" value="Modificar">
+                <div class="row">
+                    <div class="col-sm-6" >
+                        <a class="btn btn-danger w-100" href="index.php" role="button">Cancelar</a>
+                    </div>
+
+                    <div class="col-sm-6" >
+                        <input type="submit" name="modificar" class="btn btn-primary w-100" value="Modificar">
+                    </div>
+                </div>
             </form>
         </div>
     </div>
